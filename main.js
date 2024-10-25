@@ -1,3 +1,25 @@
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+
+// Enable CORS for all routes
+app.use(cors({ origin: 'https://onsen.onrender.com' } ));
+
+
+
+app.get('/', (req, res) => {
+    res.send('CORS is now enabled for all routes');
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+
+
+
 $(document).ready(function() {
         var t = document.createElement('audio');
         t.setAttribute('src', 'alertmicrosoft.mp3'),
