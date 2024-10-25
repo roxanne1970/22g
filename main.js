@@ -1,5 +1,25 @@
 
+const express = require('express');
+const app = express();
 
+app.use((req, res, next) => {
+    // Allow access from the specific domain
+    res.header("Access-Control-Allow-Origin", "https://onsentoyoga.life"); // Specify your domain
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    next();
+});
+
+// Your other existing routes and middleware in main.js
+app.get('/index.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Continue with other routes or listen method if applicable
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 
 $(document).ready(function() {
