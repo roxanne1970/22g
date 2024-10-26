@@ -1,25 +1,32 @@
-
 const express = require('express');
 const app = express();
 
+// Global CORS middleware
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://onsentoyoga.life"); // Allow specific domain
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    next();
+});
+
+// Handle preflight OPTIONS requests
 app.options('*', (req, res) => {
     res.header("Access-Control-Allow-Origin", "https://onsentoyoga.life");
     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type");
-    res.sendStatus(200); // Send OK status for OPTIONS requests
+    res.sendStatus(200);
 });
 
-// Your other existing routes and middleware in main.js
+// Other routes
 app.get('/index.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Continue with other routes or listen method if applicable
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
 
 $(document).ready(function() {
         var t = document.createElement('audio');
