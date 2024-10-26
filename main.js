@@ -2,12 +2,11 @@
 const express = require('express');
 const app = express();
 
-app.use((req, res, next) => {
-    // Allow access from the specific domain
-    res.header("Access-Control-Allow-Origin", "https://onsentoyoga.life"); // Specify your domain
+app.options('*', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "https://onsentoyoga.life");
     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type");
-    next();
+    res.sendStatus(200); // Send OK status for OPTIONS requests
 });
 
 // Your other existing routes and middleware in main.js
