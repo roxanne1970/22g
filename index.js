@@ -4,9 +4,7 @@ const cors = require('cors'); // Import the cors middleware
 const app = express();
 
 // Enable CORS for https://onsentoyoga.life
-app.use(cors({
-    origin: 'https://onsentoyoga.life'
-}));
+app.use(cors());
 
 // Serve static files from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
