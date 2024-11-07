@@ -6,8 +6,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.18.1",      // Express framework
-    "cors": "^2.8.5",          // CORS middleware for handling cross-origin requests
-    "crypto-js": "^4.1.1"      // If you're using crypto-js for encoding/decoding
+    "express": "^4.18.1",      
+    "cors": "^2.8.5",         
+    "crypto-js": "^4.1.1"      
   }
 }
